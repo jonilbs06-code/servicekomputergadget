@@ -1,0 +1,273 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__386906547<Principal, UserRole__91647283>
+  };
+type BookingRequest__244989189 =
+  {
+    contact : Text;
+    createdAt : Time__30997584;
+    handled : Bool;
+    id : Nat;
+    message : Text;
+    name : Text;
+    preferredTime : Text;
+    service : Text
+  };
+type BookingRequest__343816003 =
+  {
+    contact : Text;
+    createdAt : Int;
+    handled : Bool;
+    id : Nat;
+    message : Text;
+    name : Text;
+    preferredTime : Text;
+    service : Text
+  };
+type BookingRequest__63597976 =
+  {
+    contact : Text;
+    createdAt : Time__30997584;
+    handled : Bool;
+    id : Nat;
+    message : Text;
+    name : Text;
+    preferredTime : Text;
+    service : Text
+  };
+type BookingRequest__642910731 =
+  {
+    contact : Text;
+    createdAt : Int;
+    handled : Bool;
+    id : Nat;
+    message : Text;
+    name : Text;
+    preferredTime : Text;
+    service : Text
+  };
+type BusinessInfo__218565759 =
+  {
+    address : Text;
+    email : Text;
+    name : Text;
+    openingHours : [DayHours__465508174];
+    phone : Text;
+    tagline : Text
+  };
+type BusinessInfo__382159427 =
+  {
+    address : Text;
+    email : Text;
+    name : Text;
+    openingHours : [DayHours__132242026];
+    phone : Text;
+    tagline : Text
+  };
+type BusinessInfo__849801549 =
+  {
+    address : Text;
+    email : Text;
+    name : Text;
+    openingHours : [DayHours__384678844];
+    phone : Text;
+    tagline : Text
+  };
+type Data__265875254<K, V> = {var count : Nat__58649523; kvs : [var ?(K, V)]};
+type DayHours__1029541102 = {days : Text; hours : Text};
+type DayHours__132242026 = {days : Text; hours : Text};
+type DayHours__384678844 = {days : Text; hours : Text};
+type DayHours__465508174 = {days : Text; hours : Text};
+type GalleryImage__1031649809 = {caption : Text; id : Nat; url : Text};
+type GalleryImage__462113870 = {caption : Text; id : Nat; url : Text};
+type GalleryImage__596546865 = {caption : Text; id : Nat; url : Text};
+type GalleryImage__981421011 = {caption : Text; id : Nat; url : Text};
+type Int__616954475 = Int;
+type Int__895066125 = Int__616954475;
+type Internal__161573640<K, V> =
+  {children : [var ?Node__430031793<K, V>]; data : Data__265875254<K, V>};
+type Leaf__1045638083<K, V> = {data : Data__265875254<K, V>};
+type Map__13625999<K, V> =
+  {var root : Node__430031793<K, V>; var size : Nat__58649523};
+type Map__386906547<K, V> = Map__670138087<K, V>;
+type Map__670138087<K, V> = Map__13625999<K, V>;
+type Nat__58649523 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__530790654 =
+  {
+    accessControlState : AccessControlState__201339279;
+    bookingRequests : Map__386906547<Nat, BookingRequest__642910731>;
+    businessInfo : BusinessInfo__382159427;
+    gallery : [GalleryImage__981421011];
+    var nextRequestId : Nat;
+    serviceQueueState : {var next : Nat};
+    serviceRequests : Map__386906547<Nat, ServiceRequest__616486322>;
+    services : [Service__713246838];
+    team : [TeamMember__105414402];
+    testimonials : [Testimonial__505028621]
+  };
+type NewActor__894188721 =
+  {
+    accessControlState : AccessControlState__201339279;
+    bookingRequests : Map__386906547<Nat, BookingRequest__343816003>;
+    businessInfo : BusinessInfo__849801549;
+    gallery : [GalleryImage__1031649809];
+    var nextRequestId : Nat;
+    serviceQueueState : {var next : Nat};
+    serviceRequests : Map__386906547<Nat, NewServiceRequest__102307628>;
+    services : [Service__559097487];
+    team : [TeamMember__38355312];
+    testimonials : [Testimonial__847536416]
+  };
+type NewServiceRequest__102307628 =
+  {
+    complaint : Text;
+    contact : Text;
+    createdAt : Int;
+    deviceType : Text;
+    handoverTime : Text;
+    id : Nat;
+    name : Text;
+    price : Nat;
+    service : Text;
+    status : ServiceStatus__372509634
+  };
+type Node__430031793<K, V> =
+  {#internal : Internal__161573640<K, V>; #leaf : Leaf__1045638083<K, V>};
+type OldActor__198770292 =
+  {
+    accessControlState : AccessControlState__201339279;
+    bookingRequests : Map__386906547<Nat, BookingRequest__343816003>;
+    businessInfo : BusinessInfo__849801549;
+    gallery : [GalleryImage__1031649809];
+    var nextRequestId : Nat;
+    serviceQueueState : {var next : Nat};
+    serviceRequests : Map__386906547<Nat, OldServiceRequest__666152140>;
+    services : [Service__559097487];
+    team : [TeamMember__38355312];
+    testimonials : [Testimonial__847536416]
+  };
+type OldActor__496931928 =
+  {
+    accessControlState : AccessControlState__201339279;
+    bookingRequests : Map__386906547<Nat, BookingRequest__642910731>;
+    businessInfo : BusinessInfo__382159427;
+    gallery : [GalleryImage__981421011];
+    var nextRequestId : Nat;
+    services : [Service__713246838];
+    team : [TeamMember__105414402];
+    testimonials : [Testimonial__505028621]
+  };
+type OldServiceRequest__666152140 =
+  {
+    complaint : Text;
+    contact : Text;
+    createdAt : Int;
+    deviceType : Text;
+    handoverTime : Text;
+    id : Nat;
+    name : Text;
+    service : Text;
+    status : ServiceStatus__372509634
+  };
+type ServiceRequest__195230038 =
+  {
+    complaint : Text;
+    contact : Text;
+    createdAt : Int;
+    deviceType : Text;
+    handoverTime : Text;
+    id : Nat;
+    name : Text;
+    price : Nat;
+    service : Text;
+    status : ServiceStatus__222873340
+  };
+type ServiceRequest__616486322 =
+  {
+    complaint : Text;
+    contact : Text;
+    createdAt : Int;
+    deviceType : Text;
+    handoverTime : Text;
+    id : Nat;
+    name : Text;
+    service : Text;
+    status : ServiceStatus__541389257
+  };
+type ServiceStatus__222873340 = {#Diambil; #Dikerjakan; #Diterima; #Selesai};
+type ServiceStatus__372509634 = {#Diambil; #Dikerjakan; #Diterima; #Selesai};
+type ServiceStatus__541389257 = {#Diambil; #Dikerjakan; #Diterima; #Selesai};
+type Service__1054196247 =
+  {description : Text; duration : Text; id : Nat; name : Text; price : Text};
+type Service__311281967 =
+  {description : Text; duration : Text; id : Nat; name : Text; price : Text};
+type Service__559097487 =
+  {description : Text; duration : Text; id : Nat; name : Text; price : Text};
+type Service__713246838 =
+  {description : Text; duration : Text; id : Nat; name : Text; price : Text};
+type TeamMember__105414402 =
+  {bio : Text; id : Nat; name : Text; photo : Text; role : Text};
+type TeamMember__355003584 =
+  {bio : Text; id : Nat; name : Text; photo : Text; role : Text};
+type TeamMember__38355312 =
+  {bio : Text; id : Nat; name : Text; photo : Text; role : Text};
+type TeamMember__720132507 =
+  {bio : Text; id : Nat; name : Text; photo : Text; role : Text};
+type Testimonial__180620276 = {author : Text; id : Nat; quote : Text};
+type Testimonial__393323594 = {author : Text; id : Nat; quote : Text};
+type Testimonial__505028621 = {author : Text; id : Nat; quote : Text};
+type Testimonial__847536416 = {author : Text; id : Nat; quote : Text};
+type Time__1031799312 = Int__895066125;
+type Time__30997584 = Time__1031799312;
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20250101_000000_Init" :
+    {} ->
+      {
+        accessControlState : AccessControlState__201339279;
+        bookingRequests : Map__386906547<Nat, BookingRequest__244989189>;
+        businessInfo : BusinessInfo__218565759;
+        gallery : [GalleryImage__596546865];
+        var nextRequestId : Nat;
+        services : [Service__1054196247];
+        team : [TeamMember__355003584];
+        testimonials : [Testimonial__180620276]
+      };
+  "20260816_000000" : (old : OldActor__496931928) -> NewActor__530790654;
+  "20260816_000001" : (old : OldActor__198770292) -> NewActor__894188721
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__386906547<Principal, UserRole__91647283>
+    };
+  stable bookingRequests :
+    {
+      var root : Node__430031793<Nat, BookingRequest__63597976>;
+      var size : Nat__58649523
+    };
+  stable businessInfo :
+    {
+      address : Text;
+      email : Text;
+      name : Text;
+      openingHours : [DayHours__1029541102];
+      phone : Text;
+      tagline : Text
+    };
+  stable gallery : [GalleryImage__462113870];
+  stable var nextRequestId : Nat;
+  stable serviceQueueState : {var next : Nat};
+  stable serviceRequests :
+    {
+      var root : Node__430031793<Nat, ServiceRequest__195230038>;
+      var size : Nat__58649523
+    };
+  stable services : [Service__311281967];
+  stable team : [TeamMember__720132507];
+  stable testimonials : [Testimonial__393323594]
+};

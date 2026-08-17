@@ -1,0 +1,18 @@
+{
+  "overview": "Website bisnis TechFix untuk manajemen layanan perbaikan komputer dan gadget, dengan pelacak status publik dan dashboard statistik admin.",
+  "features": [
+    "Pelacak status publik untuk memeriksa progres perbaikan perangkat",
+    "Dashboard statistik admin dengan ringkasan perbaikan dan pendapatan",
+    "Formulir permintaan layanan perbaikan",
+    "Katalog layanan, tim, testimoni, dan galeri",
+    "Inbox admin untuk mengelola antrian perbaikan"
+  ],
+  "category": "business-website",
+  "tags": [
+    "business",
+    "repair-service",
+    "management",
+    "indonesian"
+  ],
+  "last_updated": "2026-08-16T23:15:40.658Z"
+}

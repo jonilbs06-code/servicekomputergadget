@@ -1,0 +1,186 @@
+type Value = 
+ variant {
+   "bool": bool;
+   float: float64;
+   "int": int;
+   "nat": nat;
+   "null";
+   "text": text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type Time = int;
+type Testimonial = 
+ record {
+   author: text;
+   id: nat;
+   quote: text;
+ };
+type TeamMember = 
+ record {
+   bio: text;
+   id: nat;
+   name: text;
+   photo: text;
+   role: text;
+ };
+type StatusSummary = 
+ record {
+   diambil: nat;
+   dikerjakan: nat;
+   diterima: nat;
+   selesai: nat;
+ };
+type ServiceStatus = 
+ variant {
+   Diambil;
+   Dikerjakan;
+   Diterima;
+   Selesai;
+ };
+type ServiceRequestTracking = 
+ record {
+   deviceType: text;
+   handoverTime: text;
+   id: nat;
+   "service": text;
+   status: ServiceStatus;
+ };
+type ServiceRequest = 
+ record {
+   complaint: text;
+   contact: text;
+   createdAt: int;
+   deviceType: text;
+   handoverTime: text;
+   id: nat;
+   name: text;
+   price: nat;
+   "service": text;
+   status: ServiceStatus;
+ };
+type Service = 
+ record {
+   description: text;
+   duration: text;
+   id: nat;
+   name: text;
+   price: text;
+ };
+type RevenueSummary = 
+ record {
+   completedCount: nat;
+   counts: StatusSummary;
+   totalRevenue: nat;
+ };
+type Result__1 = 
+ variant {
+   err: Error;
+   ok;
+ };
+type Result = 
+ record {
+   hasMore: bool;
+   rows: vec vec Cell;
+ };
+type GalleryImage = 
+ record {
+   caption: text;
+   id: nat;
+   url: text;
+ };
+type Error = 
+ variant {
+   AmbiguousAttribute: record {
+                         field: text;
+                         sources: vec text;
+                       };
+   FrontendOriginMismatch: record {
+                             expected: vec text;
+                             got: text;
+                           };
+   FrontendOriginsNotConfigured;
+   MalformedCandid;
+   MissingField: text;
+   MixedSsoSources: record {
+                      otherKeys: vec text;
+                      ssoKeys: vec text;
+                    };
+   NoAttributes;
+   Stale: record {ageNs: nat;};
+   UnknownNonce;
+   UntrustedSsoSource: record {domain: text;};
+ };
+type DayHours = 
+ record {
+   days: text;
+   hours: text;
+ };
+type Cell = 
+ record {
+   name: text;
+   value: Value;
+ };
+type BusinessInfo = 
+ record {
+   address: text;
+   email: text;
+   name: text;
+   openingHours: vec DayHours;
+   phone: text;
+   tagline: text;
+ };
+type BookingRequest = 
+ record {
+   contact: text;
+   createdAt: Time;
+   handled: bool;
+   id: nat;
+   message: text;
+   name: text;
+   preferredTime: text;
+   "service": text;
+ };
+service : {
+  __accessControlState: () -> (reserved) query;
+  __bookingRequests: () -> (reserved) query;
+  __businessInfo: () -> (BusinessInfo) query;
+  __gallery: () -> (vec GalleryImage) query;
+  __nextRequestId: () -> (nat) query;
+  __serviceQueueState: () -> (reserved) query;
+  __serviceRequests: () -> (reserved) query;
+  __services: () -> (vec Service) query;
+  __team: () -> (vec TeamMember) query;
+  __testimonials: () -> (vec Testimonial) query;
+  _initialize_access_control: () -> ();
+  _internet_identity_sign_in_finish: () -> (Result__1);
+  _internet_identity_sign_in_start: () -> (blob);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  deleteBookingRequest: (id: nat) -> ();
+  deleteServiceRequest: (id: nat) -> ();
+  execute: (qJson: text) -> (Result) query;
+  getBusinessInfo: () -> (BusinessInfo) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getGallery: () -> (vec GalleryImage) query;
+  getRevenueSummary: () -> (RevenueSummary) query;
+  getServiceRequestStatusSummary: () -> (StatusSummary) query;
+  getServiceRequestTracking: (id: nat) -> (opt ServiceRequestTracking) query;
+  getServices: () -> (vec Service) query;
+  getTeam: () -> (vec TeamMember) query;
+  getTestimonials: () -> (vec Testimonial) query;
+  isCallerAdmin: () -> (bool) query;
+  listBookingRequests: () -> (vec BookingRequest) query;
+  listServiceRequests: () -> (vec ServiceRequest) query;
+  schema: () -> (text) query;
+  setBookingRequestHandled: (id: nat, handled: bool) -> ();
+  setServiceRequestStatus: (id: nat, status: ServiceStatus) -> (bool);
+  submitBookingRequest: (name: text, contact: text, "service": text,
+   preferredTime: text, message: text) -> (nat);
+  submitServiceRequest: (name: text, contact: text, deviceType: text,
+   "service": text, complaint: text, handoverTime: text, price: nat) -> (
+   nat);
+}
